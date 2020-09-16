@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.module.myaccounts" version="1.0.0d" name="My Accounts Module" provider-name="Venom-Fen">
+<addon id="script.module.myaccounts" version="1.0.0i" name="My Accounts" provider-name="Venom, Fen">
 	<requires>
-		<import addon="xbmc.python" version="2.1.0" />
+		<import addon="xbmc.python" version="2.14.0" />
 		<import addon="script.module.requests" version="2.19.1" />
 	</requires>
-	<extension point="xbmc.python.pluginsource" library="lib/default.py">
+	<extension point="xbmc.python.script" library="lib/default.py">
 		<provides>executable</provides>
 	</extension>
 	<extension point="xbmc.service" library="lib/service.py" start="startup" />
@@ -16,8 +16,8 @@
 		<platform>all</platform>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
 		<forum></forum>
-		<website>https://github.com/123Venom/plugin.video.venom</website><!-- It's home is not confirmed yet. -->
-		<source>https://github.com/123Venom/plugin.video.venom</source><!-- It's home is not confirmed yet. -->
+		<website>https://github.com/a4k-openproject/repository.myaccounts</website>
+		<source>https://github.com/a4k-openproject/repository.myaccounts</source>
 		<disclaimer lang="en">The author is not responsible for the use of this addon. [CR]The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation.[CR]This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works.</disclaimer>
 		<assets>
 			<icon>icon.png</icon>
