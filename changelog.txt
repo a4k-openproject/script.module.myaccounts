@@ -1,2 +1,2 @@
-[B][COLOR red]Initial Release - v1.0.0 – Sept. 05, 2020[/COLOR][/B]
+[B][COLOR red]Initial Release - v1.0.1 – Sept. 21, 2020[/COLOR][/B]
 [COLOR yellow]--[/COLOR][I] Kick off release.[/I]

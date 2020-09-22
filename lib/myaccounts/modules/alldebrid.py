@@ -75,13 +75,13 @@ class AllDebrid:
 		control.sleep(2000)
 		account_info = self.account_info()
 		control.setSetting('alldebrid.username', str(account_info['user']['username']))
-		control.notification(title='default', message=40079, icon=ad_icon)
+		control.notification(title=40059, message=40081, icon=ad_icon)
 
 	def revoke(self):
 		try:
 			control.setSetting('alldebrid.username', '')
 			control.setSetting('alldebrid.token', '')
-			control.dialog.ok('My Accounts', control.lang(32314))
+			control.dialog.ok(control.lang(40059), control.lang(32314))
 		except:
 			log_utils.error()
 			pass

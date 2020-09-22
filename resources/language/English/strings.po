@@ -373,12 +373,12 @@ msgctxt "#40079"
 msgid "realdebrid token"
 msgstr ""
 
-msgctxt "#40079"
-msgid "Authorization Successful"
-msgstr ""
-
 msgctxt "#40080"
 msgid "Enable"
+msgstr ""
+
+msgctxt "#40081"
+msgid "Authorization Successful"
 msgstr ""
 
 

@@ -121,7 +121,7 @@ class RealDebrid:
 			self.auth_loop()
 		if self.secret:
 			if self.get_token():
-				control.notification(message=40079, icon=rd_icon)
+				control.notification(title=40058, message=40081, icon=rd_icon)
 			else:
 				return control.okDialog(title='default', message=control.lang(40019))
 
@@ -198,7 +198,7 @@ class RealDebrid:
 			control.setSetting('realdebrid.token', '')
 			control.setSetting('realdebrid.refresh', '')
 			control.setSetting('realdebrid.username', '')
-			control.dialog.ok('My Accounts', control.lang(32314))
+			control.dialog.ok(control.lang(40058), control.lang(32314))
 		except:
 			log_utils.error()
 			pass

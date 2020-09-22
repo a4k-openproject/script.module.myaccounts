@@ -17,8 +17,6 @@ class Trakt():
 		self.api_endpoint = 'https://api-v2launch.trakt.tv/%s'
 		self.client_id = '1ff09b52d009f286be2d9bdfc0314c688319cbf931040d5f8847e7694a01de42'
 		self.client_secret = '0c5134e5d15b57653fefed29d813bfbd58d73d51fb9bcd6442b5065f30c4d4dc'
-		self.expires_at = control.setting('trakt.expires')
-		self.token = control.setting('trakt.token')
 
 
 	def call(self, path, data=None, with_auth=True, method=None, suppress_error_notification=False):
@@ -30,11 +28,14 @@ class Trakt():
 				resp = None
 				if with_auth:
 					try:
-						if time.time() > self.expires_at:
+						expires_at = control.setting('trakt.expires')
+						if time.time() > expires_at:
 							self.refresh_token()
 					except:
 						pass
-					headers['Authorization'] = 'Bearer ' + self.token
+					token = control.setting('trakt.token')
+					if token:
+						headers['Authorization'] = 'Bearer ' + token
 				try:
 					if data is not None:
 						resp = requests.post(self.api_endpoint % path, json=data, headers=headers, timeout=timeout)
@@ -97,8 +98,6 @@ class Trakt():
 
 
 	def refresh_token(self):
-		traktToken = None
-		traktRefresh = None
 		data = {        
 			"client_id": self.client_id,
 			"client_secret": self.client_secret,
@@ -108,11 +107,8 @@ class Trakt():
 		}
 		response = self.call("oauth/token", data=data, with_auth=False)
 		if response:
-			traktToken = response["access_token"]
-			traktRefresh = response["refresh_token"]
-			control.setSetting('trakt.token', traktToken)
-			control.setSetting('trakt.refresh', traktRefresh)
-		self.token = traktToken
+			control.setSetting('trakt.token', response["access_token"])
+			control.setSetting('trakt.refresh', response["refresh_token"])
 
 
 	def auth(self):
@@ -124,8 +120,6 @@ class Trakt():
 				control.setSetting('trakt.expires', str(expires_at))
 				control.setSetting('trakt.token', token["access_token"])
 				control.setSetting('trakt.refresh', token["refresh_token"])
-				self.expires_at = expires_at
-				self.token = token["access_token"]
 				control.sleep(1000)
 				try:
 					user = self.call("users/me", with_auth=True)
@@ -147,7 +141,7 @@ class Trakt():
 		control.setSetting('trakt.expires', '')
 		control.setSetting('trakt.token', '')
 		control.setSetting('trakt.refresh', '')
-		control.dialog.ok(control.lang(32315), control.lang(32314))
+		control.notification(title='default', message=40009, icon=trakt_icon)
 
 	
 	def account_info(self):
@@ -181,7 +175,7 @@ class Trakt():
 			episodes_watched = stats['episodes']['watched']
 			episodes_watched_minutes = ("{:0>8}".format(str(timedelta(minutes=stats['episodes']['minutes'])))).split(', ')
 			episodes_watched_minutes = control.lang(40071) % (episodes_watched_minutes[0], episodes_watched_minutes[1].split(':')[0], episodes_watched_minutes[1].split(':')[1])
-			heading = control.lang(32315)
+			heading = control.lang(32315).upper()
 			items = []
 			items += [control.lang(40036) % username]
 			items += [control.lang(40063) % timezone]

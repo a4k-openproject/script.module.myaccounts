@@ -31,7 +31,6 @@ def getAllDebrid():
 
 def getAD():
 	ad = {'alldebrid': {}}
-	ad['alldebrid']['enabled'] = control.setting('alldebrid.enabled')
 	ad['alldebrid']['token'] = control.setting('alldebrid.token')
 	ad['alldebrid']['username'] = control.setting('alldebrid.username')
 	return ad
@@ -39,7 +38,6 @@ def getAD():
 
 def getPM():
 	pm = {'premiumize': {}}
-	pm['premiumize']['enabled'] = control.setting('premiumize.enabled')
 	pm['premiumize']['token'] = control.setting('premiumize.token')
 	pm['premiumize']['username'] = control.setting('premiumize.username')
 	return pm
@@ -47,7 +45,6 @@ def getPM():
 
 def getRD():
 	rd = {'realdebrid': {}}
-	rd['realdebrid']['enabled'] = control.setting('realdebrid.enabled')
 	rd['realdebrid']['token'] = control.setting('realdebrid.token')
 	rd['realdebrid']['username'] = control.setting('realdebrid.username')
 	rd['realdebrid']['client_id'] = control.setting('realdebrid.client_id')

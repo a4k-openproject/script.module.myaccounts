@@ -16,28 +16,25 @@
 	<!-- Debrid Accounts - 1 -->
 	<category label="32309">
 		<setting type="lsep" label="40059" />
-		<setting id="alldebrid.enabled" type="bool" label="40080" default="true" />
 		<setting id="alldebrid.token" label="40077" type="text" default="" visible="false" />
-		<setting id="alldebrid.username" label="32318" type="text" default="" visible="eq(-2,true)+!eq(-1,)" enable="false" />
-		<setting type="action" label="32316" action="RunScript(script.module.myaccounts, action=alldebridAcct)" visible="eq(-3,true)+!eq(-2,)" />
-		<setting type="action" label="32319" action="RunScript(script.module.myaccounts, action=alldebridAuth)" visible="eq(-4,true)+eq(-3,)" />
-		<setting type="action" label="32317" action="RunScript(script.module.myaccounts, action=alldebridRevoke)" visible="eq(-5,true)+!eq(-4,)" />
+		<setting id="alldebrid.username" label="32318" type="text" default="" visible="!eq(-1,)" enable="false" />
+		<setting type="action" label="32316" action="RunScript(script.module.myaccounts, action=alldebridAcct)" visible="!eq(-2,)" />
+		<setting type="action" label="32319" action="RunScript(script.module.myaccounts, action=alldebridAuth)" visible="eq(-3,)" />
+		<setting type="action" label="32317" action="RunScript(script.module.myaccounts, action=alldebridRevoke)" visible="!eq(-4,)" />
 
 		<setting type="lsep" label="40057" />
-		<setting id="premiumize.enabled" type="bool" label="40080" default="true" />
 		<setting id="premiumize.token" label="40078" type="text" default="" visible="false" />
-		<setting id="premiumize.username" label="32318" type="text" default="" visible="eq(-2,true)+!eq(-1,)" enable="false" />
-		<setting type="action" label="32316" action="RunScript(script.module.myaccounts, action=premiumizeAcct)" visible="eq(-3,true)+!eq(-2,)" />
-		<setting type="action" label="32319" action="RunScript(script.module.myaccounts, action=premiumizeAuth)" visible="eq(-4,true)+eq(-3,)" />
-		<setting type="action" label="32317" action="RunScript(script.module.myaccounts, action=premiumizeRevoke)" visible="eq(-5,true)+!eq(-4,)" />
+		<setting id="premiumize.username" label="32318" type="text" default="" visible="!eq(-1,)" enable="false" />
+		<setting type="action" label="32316" action="RunScript(script.module.myaccounts, action=premiumizeAcct)" visible="!eq(-2,)" />
+		<setting type="action" label="32319" action="RunScript(script.module.myaccounts, action=premiumizeAuth)" visible="eq(-3,)" />
+		<setting type="action" label="32317" action="RunScript(script.module.myaccounts, action=premiumizeRevoke)" visible="!eq(-4,)" />
 
 		<setting type="lsep" label="40058" />
-		<setting id="realdebrid.enabled" type="bool" label="40080" default="true" />
 		<setting id="realdebrid.token" label="40079" type="text" default="" visible="false" />
-		<setting id="realdebrid.username" label="32318" type="text" default="" visible="eq(-2,true)+!eq(-1,)" enable="false" />
-		<setting type="action" label="32316" action="RunScript(script.module.myaccounts, action=realdebridAcct)" visible="eq(-3,true)+!eq(-2,)" />
-		<setting type="action" label="32319" action="RunScript(script.module.myaccounts, action=realdebridAuth)" visible="eq(-4,true)+eq(-3,)" />
-		<setting type="action" label="32317" action="RunScript(script.module.myaccounts, action=realdebridRevoke)" visible="eq(-5,true)+!eq(-4,)" />
+		<setting id="realdebrid.username" label="32318" type="text" default="" visible="!eq(-1,)" enable="false" />
+		<setting type="action" label="32316" action="RunScript(script.module.myaccounts, action=realdebridAcct)" visible="!eq(-2,)" />
+		<setting type="action" label="32319" action="RunScript(script.module.myaccounts, action=realdebridAuth)" visible="eq(-3,)" />
+		<setting type="action" label="32317" action="RunScript(script.module.myaccounts, action=realdebridRevoke)" visible="!eq(-4,)" />
 		<setting id="realdebrid.client_id" label="realdebrid client_id" type="text" default="" visible="false" />
 		<setting id="realdebrid.refresh" label="realdebrid refresh" type = "text" default="" visible="false" />
 		<setting id="realdebrid.secret" label="realdebrid secret" type = "text" default="" visible="false" />

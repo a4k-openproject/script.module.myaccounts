@@ -68,7 +68,7 @@ class Premiumize:
 			token_ttl -= int(token['interval'])
 		progressDialog.close()
 		if success:
-			control.notification(title='default', message=40079, icon=pm_icon)
+			control.notification(title=40057, message=40081, icon=pm_icon)
 
 	def poll_token(self, device_code):
 		data = {'client_id': CLIENT_ID, 'code': device_code, 'grant_type': 'device_code'}
@@ -90,7 +90,7 @@ class Premiumize:
 		try:
 			control.setSetting('premiumize.token', '')
 			control.setSetting('premiumize.username', '')
-			control.dialog.ok('My Accounts', control.lang(32314))
+			control.dialog.ok(control.lang(40057), control.lang(32314))
 		except:
 			log_utils.error()
 			pass
